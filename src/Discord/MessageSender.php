@@ -38,16 +38,16 @@ class MessageSender
         $text .= sprintf(
 'Hi!
 
-You have been chosen to be part of a Secret Santa :santa:!
+You have been chosen to be part of a FireFight!
 
-**You have been chosen to gift:**
-:gift: **<@%s>** :gift:
+**You are targeting:**
+:boom: **<@%s>** :boom:
 **That\'s a secret we only shared with you!**
 
-Someone has also been chosen to get you a gift.', $receiver);
+Someone has also been chosen to target you. Watch your back, $receiver);
 
         if (!empty($secretSanta->getAdminMessage())) {
-            $text .= "\n\nHere is a message from the Secret Santa admin:\n\n```" . $secretSanta->getAdminMessage() . '```';
+            $text .= "\n\nHere is a message from the game admin:\n\n```" . $secretSanta->getAdminMessage() . '```';
         }
 
         if ($secretSanta->getAdmin()) {
@@ -55,7 +55,7 @@ Someone has also been chosen to get you a gift.', $receiver);
         }
 
         $text .= "\n\n";
-        $text .= '_If you see `@invalid-user` as the user you need to send a gift, please read the message from desktop. There is a known bug in Discord Mobile applications._';
+        $text .= '_If you see `@invalid-user` as the user you need to target, please read the message from desktop. There is a known bug in Discord Mobile applications._';
 
         try {
             $this->apiHelper->sendMessage($giver, $text);
@@ -78,7 +78,7 @@ Someone has also been chosen to get you a gift.', $receiver);
     public function sendAdminMessage(SecretSanta $secretSanta, string $code, string $spoilUrl): void
     {
         $text = sprintf(
-'Dear Secret Santa admin,
+'Dear game admin,
 
 In case of trouble or if you need it for whatever reason, here is a way to retrieve the secret repartition:
 
@@ -88,7 +88,7 @@ In case of trouble or if you need it for whatever reason, here is a way to retri
 
 Remember, with great power comes great responsibility!
 
-Happy Secret Santa!',
+Happy fragging!',
             $code,
             $spoilUrl
         );

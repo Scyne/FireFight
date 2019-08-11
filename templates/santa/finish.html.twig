@@ -3,29 +3,29 @@
 {% block content %}
     <div class="content result-block">
         {% if secretSanta.isDone %}
-            <h2>Well done! All messages were sent, happy gifting!</h2>
+            <h2>Well done! All messages were sent, good luck!</h2>
 
             <p class="summary">
-                You have received a private message explaining how to retrieve the santa repartition.
-                You should probably not look at it, to avoid breaking the Secret Santa magic.
+                You have received a private message explaining how to retrieve the targeting repartition.
+                You should probably not look at it to avoid cheating... I'm trusting you.
             </p>
         {% else %}
             <h2>😱 All the messages are not sent yet, please read carefully</h2>
 
             <div class="result-error">
                 <p>
-                    Sometimes, even Santa run into problems when doing its job. But keep reading, everything is not lost!
+                    There was a problem with targeting but keep reading, everything is not lost!
                 </p>
 
                 <h3>We need you to send the remaining messages</h3>
 
                 <p>
-                    Here is the list of users that didn't reveive their Secret Santa message <strong>yet</strong> (click <button id="reveal" class="">here</button> to reveal the receivers):
+                    Here is the list of users that didn't reveive their targeting message <strong>yet</strong> (click <button id="reveal" class="">here</button> to reveal the receivers):
                 </p>
 
                 <ul>
                     {% for giver,receiver in secretSanta.remainingAssociations %}
-                        <li><strong>{{ secretSanta.user(giver).name|default(secretSanta.user(giver).identifier) }}</strong> must offer a gift to <strong data-receiver="{{ secretSanta.user(receiver).name|default(secretSanta.user(receiver).identifier) }}">xxxxx</strong></li>
+                        <li><strong>{{ secretSanta.user(giver).name|default(secretSanta.user(giver).identifier) }}</strong> is targeting <strong data-receiver="{{ secretSanta.user(receiver).name|default(secretSanta.user(receiver).identifier) }}">xxxxx</strong></li>
                     {% endfor %}
                 </ul>
 
@@ -86,7 +86,7 @@
 
                 <p>
                     Sorry for the inconvenience. If the retry button did not work, you can still contact them <strong>manually</strong>.
-                    <a href="https://github.com/jolicode/secret-santa/issues">Let us know too!</a>
+                    <a href="https://github.com/Scyne/FireFight/issues">Let us know too!</a>
                 </p>
             </div>
         {% endif %}
@@ -94,14 +94,7 @@
         <div class="is-center">
             <a href="{{ path('homepage') }}" class="big-button">
                 <span class="fas fa-redo" aria-hidden="true"></span>
-                Start another Secret Santa
-            </a>
-        </div>
-
-        <div class="is-center">
-            <a href="{{ path('hall_of_fame') }}" class="big-button">
-                <span class="fas fa-star" aria-hidden="true"></span>
-                Add your company to the Hall of Fame!
+                Start another FireFight
             </a>
         </div>
     </div>

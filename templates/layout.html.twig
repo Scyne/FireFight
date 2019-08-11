@@ -19,16 +19,16 @@
         <link rel="icon" type="image/png" sizes="128x128" href="{{ asset('favicon-128x128.png') }}" />
         <link rel="icon" type="image/png" sizes="196x196" href="{{ asset('favicon-196x196.png') }}" />
         <link rel="manifest" href="{{ asset('manifest.json') }}">
-        <meta name="theme-color" content="#E03A4D">
-        <meta name="application-name" content="Secret Santa"/>
-        <meta name="msapplication-TileColor" content="#E03A4D" />
+        <meta name="theme-color" content="#e06100">
+        <meta name="application-name" content="FireFight"/>
+        <meta name="msapplication-TileColor" content="#e06100" />
         <meta name="msapplication-TileImage" content="{{ asset('mstile-144x144.png') }}" />
         <meta name="msapplication-square70x70logo" content="{{ asset('mstile-70x70.png') }}" />
         <meta name="msapplication-square150x150logo" content="{{ asset('mstile-150x150.png') }}" />
         <meta name="msapplication-wide310x150logo" content="{{ asset('mstile-310x150.png') }}" />
         <meta name="msapplication-square310x310logo" content="{{ asset('mstile-310x310.png') }}" />
 
-        <meta name="slack-app-id" content="A0E7EFUB1">
+        <meta name="slack-app-id" content="AM2K4NFDF">
 
         {% block seo %}
             {{ include('_seo.html.twig') }}
@@ -44,14 +44,14 @@
                 <div class="pure-menu-heading">
                     <a href="{{ path('homepage') }}">
                         <div class="logo-wrapper">
-                            <img src="{{ asset('images/logo' ~ (spoilInProgress is defined ? '-spoiler' : '') ~ '.png') }}" alt="Secret Santa" />
+                            <img src="{{ asset('images/logo' ~ (spoilInProgress is defined ? '-spoiler' : '') ~ '.png') }}" alt="FireFight" />
                         </div>
                         <div>
                             <div class="site-brand">
-                                Secret Santa
+                                FireFight
                             </div>
                             <div class="site-headline">
-                                Share the Christmas spirit<br/>with your team
+                                Share the spirit of combat<br/>with your team
                             </div>
                         </div>
                     </a>
@@ -59,13 +59,10 @@
 
                 <ul class="pure-menu-list">
                     <li class="pure-menu-item">
-                        <a class="pure-menu-link" href="{{ path('hall_of_fame') }}"><i class="fas fa-star"></i> Hall of Fame</a>
-                    </li>
-                    <li class="pure-menu-item">
                         <a class="pure-menu-link" href="{{ path('faq') }}"><i class="fas fa-question"></i> FAQ</a>
                     </li>
                     <li class="pure-menu-item">
-                        <a target="_blank" rel="noreferrer" class="pure-menu-link" href="https://github.com/jolicode/secret-santa/"><i class="fab fa-github"></i> Star us on GitHub</a>
+                        <a target="_blank" rel="noreferrer" class="pure-menu-link" href="https://github.com/Scyne/FireFight"><i class="fab fa-github"></i> Star us on GitHub</a>
                     </li>
                 </ul>
             </div>
@@ -80,13 +77,9 @@
                     <a href="mailto:hello@secret-santa.team" class="support-link"><i class="far fa-life-ring"></i> Need help? Contact us!</a>
                 {% endblock contact %}
                 <p>
-                    This free service to share the santa spirit is made with ♥ by <a href="https://jolicode.com">JoliCode</a>.
+                    This bot is made with ♥ by someone with too much time free time for <a href="https://fieldedge.com/">FieldEdge</a>.
                     <br>
-                    Hosted gracefully by the awesome people at <a href="https://www.clever-cloud.com/">Clever Cloud</a>.
-                    <br>
-                    Emoji and logo provided by <a href="https://www.emojione.com/">Emoji One</a>.
-                    <br>
-                    Sharing gifts since 2015.
+                    Targeting Frags since 2019.
                 </p>
                 <p>
                     <a href="{{ path('terms') }}">Terms of Service</a>

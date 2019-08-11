@@ -35,7 +35,7 @@ class MessageSender
             $blocks[] = [
                 'type' => 'context',
                 'elements' => [
-                    ['type' => 'mrkdwn', 'text' => '_Find below a sample of the message that will be sent to each members of your Secret Santa._'],
+                    ['type' => 'mrkdwn', 'text' => '_Find below a sample of the message that will be sent to each members of your game._'],
                 ],
             ];
         }
@@ -44,7 +44,7 @@ class MessageSender
             'type' => 'section',
             'text' => [
                 'type' => 'mrkdwn',
-                'text' => sprintf("Hi!\nYou have been chosen to be part of a Secret Santa :santa:!\n\n"),
+                'text' => sprintf("Hi!\nYou have been chosen to be part of a FireFight Game!\n\n"),
             ],
         ];
 
@@ -53,7 +53,7 @@ class MessageSender
             'type' => 'section',
             'text' => [
                 'type' => 'mrkdwn',
-                'text' => sprintf("*You have been chosen to gift:*\n\n:gift: *<@%s>* :gift:\n\n", $receiver),
+                'text' => sprintf("*Your target is:*\n\n:dart: *<@%s>* :dart:\n\n", $receiver),
             ],
         ];
 
@@ -67,15 +67,15 @@ class MessageSender
 
         $blocks[] = $receiverBlock;
 
-        $fallbackText .= sprintf('You have been chosen to be part of a Secret Santa :santa:!
-*You have been chosen to gift:* :gift: *<@%s>* :gift:', $receiver);
+        $fallbackText .= sprintf('You have been chosen to be part of a FireFight Game!
+*Your Target is:* :dart: *<@%s>* :dart:', $receiver);
 
         if (!empty($secretSanta->getAdminMessage())) {
             $blocks[] = [
                 'type' => 'section',
                 'text' => [
                     'type' => 'mrkdwn',
-                    'text' => sprintf('*Here is a message from the Secret Santa admin _(<@%s>)_:*', $secretSanta->getAdmin()->getIdentifier()),
+                    'text' => sprintf('*Here is a message from the game admin _(<@%s>)_:*', $secretSanta->getAdmin()->getIdentifier()),
                 ],
             ];
 
@@ -87,13 +87,13 @@ class MessageSender
                 ],
             ];
 
-            $fallbackText .= sprintf("\n\nHere is a message from the Secret Santa admin _(<@%s>)_:\n\n```%s```", $secretSanta->getAdmin()->getIdentifier(), $secretSanta->getAdminMessage());
+            $fallbackText .= sprintf("\n\nHere is a message from the game admin _(<@%s>)_:\n\n```%s```", $secretSanta->getAdmin()->getIdentifier(), $secretSanta->getAdminMessage());
         } else {
             $blocks[] = [
                 'type' => 'section',
                 'text' => [
                     'type' => 'mrkdwn',
-                    'text' => sprintf('_If you have any question please ask your Secret Santa Admin: <@%s>_', $secretSanta->getAdmin()->getIdentifier()),
+                    'text' => sprintf('_If you have any question please ask your Game Admin: <@%s>_', $secretSanta->getAdmin()->getIdentifier()),
                 ],
             ];
         }
@@ -105,16 +105,16 @@ class MessageSender
         $blocks[] = [
             'type' => 'context',
             'elements' => [
-                ['type' => 'plain_text', 'text' => 'That\'s a secret only shared with you! Someone has also been chosen to get you a gift.'],
-                ['type' => 'mrkdwn', 'text' => 'Powered by <https://secret-santa.team/|Secret-Santa.team>'],
+                ['type' => 'plain_text', 'text' => 'That\'s a secret only shared with you! Someone has also been chosen to target you. Watch your back!'],
+                ['type' => 'mrkdwn', 'text' => 'Powered by The FireFight Targeting System'],
             ],
         ];
 
         try {
             $response = $this->clientFactory->getClientForToken($token)->chatPostMessage([
                 'channel' => sprintf('@%s', $giver),
-                'username' => $isSample ? 'Secret Santa Preview' : 'Secret Santa Bot',
-                'icon_url' => 'https://secret-santa.team/images/logo.png',
+                'username' => $isSample ? 'FireFight Preview' : 'FireFight Targeting System',
+                'icon_url' => 'https://cdn.imgbin.com/23/8/15/imgbin-terri-brosius-system-shock-2-shodan-video-game-others-AqSXxPX2rjEkGZVwHftScKZR8.jpg',
                 'text' => $fallbackText,
                 'blocks' => \json_encode($blocks),
             ]);
@@ -133,7 +133,7 @@ class MessageSender
     public function sendAdminMessage(SecretSanta $secretSanta, string $code, string $spoilUrl, string $token): void
     {
         $text = sprintf(
-            'Dear Secret Santa admin,
+            'Dear Game admin,
 
 In case of trouble or if you need it for whatever reason, here is a way to retrieve the secret repartition:
 
@@ -143,7 +143,7 @@ In case of trouble or if you need it for whatever reason, here is a way to retri
 
 Remember, with great power comes great responsibility!
 
-Happy Secret Santa!',
+Happy Fragging!',
             $code,
             $spoilUrl
         );
@@ -151,8 +151,8 @@ Happy Secret Santa!',
         try {
             $response = $this->clientFactory->getClientForToken($token)->chatPostMessage([
                 'channel' => $secretSanta->getAdmin()->getIdentifier(),
-                'username' => 'Secret Santa Bot Spoiler',
-                'icon_url' => 'https://secret-santa.team/images/logo-spoiler.png',
+                'username' => 'FireFight Spoiler',
+                'icon_url' => 'https://img.fireden.net/v/image/1492/02/1492027545775.png',
                 'text' => $text,
             ]);
 

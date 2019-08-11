@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="content spoil-block">
-        <h2>Spoiling Santa</h2>
+        <h2>Spoiling Target</h2>
 
         {% if associations %}
             <p>
@@ -13,7 +13,7 @@
 
             <ul>
                 {% for giver,receiver in associations %}
-                    <li><strong>{{ giver }}</strong> must offer a gift to <strong>{{ receiver }}</strong></li>
+                    <li><strong>{{ giver }}</strong> initial target is <strong>{{ receiver }}</strong></li>
                 {% endfor %}
             </ul>
 
