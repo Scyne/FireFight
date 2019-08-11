@@ -1,12 +1,12 @@
-# Secret Santa app
+# FieldEdge FireFight Targeting app
 
-Just go to https://secret-santa.team/ and have fun.
+Lovingly crafted by Keith by rewiring the Secret Santa Slack app
 
 Code source is under MIT License.
 
 - This application is powered by Symfony and its new Flex way to build app;
-- Hosting is provided by [Clever Cloud](https://www.clever-cloud.com/);
-- Built with ♥ by [@pyrech](https://github.com/pyrech) and [@damienalexandre](https://github.com/damienalexandre).
+- Hosting is provided by [Heroku](https://www.heroku.com/);
+- Originally Built with ♥ by [@pyrech](https://github.com/pyrech) and [@damienalexandre](https://github.com/damienalexandre).
 
 ## Install and run locally
 
