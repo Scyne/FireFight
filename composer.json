@@ -1,20 +1,20 @@
 {
-    "name": "jolicode/secret-santa",
+    "name": "Scyne/FireFight",
     "license": "MIT",
     "authors": [
         {
-            "name": "JoliCode",
-            "email": "coucou@jolicode.com"
+            "name": "Scyne",
+            "email": "KMcNeil@FieldEdge.com"
         }
     ],
     "autoload": {
         "psr-4": {
-            "JoliCode\\SecretSanta\\": "src/"
+            "Scyne\\FireFight\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "JoliCode\\SecretSanta\\Tests\\": "tests/"
+            "Scyne\\FireFight\\Tests\\": "tests/"
         }
     },
     "require": {
